@@ -1,4 +1,6 @@
 const textbox = document.getElementById('textbox');
+const mutemusic = document.getElementById('mutemusic');
+const audioiframe = document.getElementById('audioiframe');
 
 // initialize textbox value from localStorage if it is not more than 24 hours old
 const stored = localStorage.getItem('textbox');
@@ -25,3 +27,12 @@ textbox.addEventListener('input', e => {
   }));
 });
 
+mutemusic.addEventListener('click', e => {
+  if(document.getElementById('audioiframe')) {
+    audioiframe.remove();
+    mutemusic.textContent = "Play Music";
+  } else {
+    window.location.reload();
+  }
+
+});
