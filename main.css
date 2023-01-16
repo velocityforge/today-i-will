@@ -35,3 +35,7 @@ body {
   align-items: center;
   font-size: 2rem;
 } 
+
+.textbox:focus {
+  outline: none;
+}
