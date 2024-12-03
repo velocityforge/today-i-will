@@ -37,7 +37,6 @@ body {
   cursor: text;
 }
 
-/* Center the text box */
 #text-box {
   user-select: none;
   height: calc(1.5rem * 3 + 20px); /* Line height * 3 + padding */
