@@ -1,38 +1,46 @@
-const textbox = document.getElementById('textbox');
-const mutemusic = document.getElementById('mutemusic');
-const audioiframe = document.getElementById('audioiframe');
+const textWrapper = document.getElementById('text-wrapper')
+const textBox = document.getElementById('text-box');
+const btnToggleMusic = document.getElementById('toggle-music');
+const audioPlayer = document.getElementById('audio-player');
 
-// initialize textbox value from localStorage if it is not more than 24 hours old
-const stored = localStorage.getItem('textbox');
+// Initialize textBox value from localStorage if it is not more than 24 hours old
+const stored = localStorage.getItem('textBox');
 if (stored) {
   let text, dateTm;
   try {
-    const parsed = JSON.parse(stored)
+    const parsed = JSON.parse(stored);
     text = parsed.text;
     dateTm = new Date(parsed.dateTm);
   } catch (e) {
-    console.log("Corrupted localStorage data, clearing it")
-    localStorage.setItem('textbox', '');
+    console.error("Corrupted localStorage data, clearing it");
+    localStorage.removeItem('textBox');
   }
-  
+
   if (new Date() - dateTm < 24 * 60 * 60 * 1000) {
-    textbox.textContent = text;
+    textBox.value = text;
   }
 }
 
-textbox.addEventListener('input', e => {
-  localStorage.setItem('textbox', JSON.stringify({
-    text: e.target.textContent,
+textBox.addEventListener('input', e => {
+  localStorage.setItem('textBox', JSON.stringify({
+    text: e.target.value,
     dateTm: new Date()
   }));
 });
 
-mutemusic.addEventListener('click', e => {
-  if(document.getElementById('audioiframe')) {
-    audioiframe.remove();
-    mutemusic.textContent = "Play Music";
+btnToggleMusic.addEventListener('click', () => {
+  if (audioPlayer.paused || audioPlayer.muted) {
+    // Unmute and play the audio
+    audioPlayer.muted = false;
+    audioPlayer.play();
+    btnToggleMusic.textContent = "Stop Music";
   } else {
-    window.location.reload();
+    // Pause the audio
+    audioPlayer.pause();
+    btnToggleMusic.textContent = "Play Music";
   }
-
 });
+
+textWrapper.addEventListener('click', () => {
+  textBox.focus()
+})

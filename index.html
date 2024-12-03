@@ -4,13 +4,23 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Logo: -->
+  <link rel="icon" href="logo.png" type="image/x-icon">
   <title>Today I Will</title>
   <link href="main.css" rel="stylesheet" type="text/css">
   <script src="main.js" defer></script>
 </head>
 <body>
-  <p class="pointer textwhite textcenter" id="mutemusic">Stop Music</p>
-  <div class="textbox textwhite" id="textbox" contenteditable="true"></div>
-  <iframe id="audioiframe" width="0" height="0" src="https://www.youtube.com/embed/jfKfPfyJRdk?autoplay=1" allow="autoplay; encrypted-media;"></iframe>
+  <p id="toggle-music">Play Music</p>
+  <div id="text-wrapper">
+    <textarea id="text-box" placeholder="I need to..."></textarea>
+  </div>
+  
+  <audio id="audio-player" autoplay loop muted>
+    <source 
+      src="https://fluxfm.streamabc.net/flx-chillhop-mp3-128-8581707?sABC=674s5nn9%230%2323633p23s30r6n0rn3s17qn5ooq25530%23fgernzf.syhksz.qr&amp;aw_0_1st.playerid=streams.fluxfm.de&amp;amsparams=playerid:streams.fluxfm.de;skey:1733253801"
+      type="audio/mpeg"
+    >
+  </audio>
 </body>
 </html>

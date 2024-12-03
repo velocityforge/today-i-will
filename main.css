@@ -1,41 +1,61 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+@import url('https://fonts.googleapis.com/css2?family=Funnel+Display&display=swap');
+
+/* Apply styles to the body */
+html, body {
+  min-height: 100vh;
 }
 
 body {
-  height: 100vh;
-  width: 100vw;
-  background-color: #333333;
-  position: relative;
-  overflow: hidden;
+  background-color: #333;
   display: flex;
   flex-direction: column;
 }
 
-.textwhite {
-  color: #fff;
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Funnel Display', sans-serif;
+  font-weight: bold;
 }
 
-.pointer {
-  cursor: pointer;
-}
-
-.textcenter {
-  text-align: center;
-}
-
-.textbox{
-  background-color: transparent;
+/* Style for the toggle music button */
+#toggle-music {
+  color: white;
+  font-size: .9rem;
+  padding-top: 10px;
+  padding-bottom: 10px;
   width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 2rem;
-} 
+  cursor: pointer;
+  text-align: center;
+  user-select: none;
+}
 
-.textbox:focus {
+#text-wrapper {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  cursor: text;
+}
+
+/* Center the text box */
+#text-box {
+  user-select: none;
+  height: calc(1.5rem * 3 + 20px); /* Line height * 3 + padding */
+  font-weight: bold;
+  padding: 10px;
+  border: none;
+  resize: none;
+  color: white;
+  background-color: transparent;
+  text-align: center;
+  overflow-y: auto;
+  box-sizing: border-box;
+  line-height: 1.5;
+  font-size: 1.5rem;
+  width: 100%;
+}
+
+#text-box:focus {
   outline: none;
 }
+
